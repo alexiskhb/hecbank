@@ -79,8 +79,6 @@ USER_PAYMENTS = {
     ]
 }
 
-LANGUAGE_CODE = 'ru-RU'
-
 if os.environ.get("LOG"):
     logger = logging.getLogger("user_payments")
     logger.addHandler(logging.StreamHandler())
