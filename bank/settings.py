@@ -6,7 +6,7 @@ STORE_PREFIX = 'store'
 DEBUG = True
 BASE_DIR = os.path.dirname(__file__)
 
-ALLOWED_HOSTS = ['hecbank.ru', '127.0.0.1']
+ALLOWED_HOSTS = ['www.hecbank.ru', 'hecbank.ru', '127.0.0.1']
 
 DATABASES = {
     'default': {
@@ -31,10 +31,7 @@ LOGIN_REDIRECT_URL = "/"
 
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-# ]
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = "static"
 
 
 ROOT_URLCONF = "bank.urls"
