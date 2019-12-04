@@ -1,0 +1,11 @@
+{% extends "./layout.html" %}
+
+{% block content %}
+{% load static %}
+<div class="container" style="padding-top: 20px; padding-bottom: 20px;">
+    <h2>Готово</h2>
+    <p>Операция прошла успешно!</p>
+    <br>
+    <a href="{% url 'index' %}">На главную</a>
+</div>
+{% endblock %}

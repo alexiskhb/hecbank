@@ -1,0 +1,11 @@
+{% extends "./layout.html" %}
+
+{% block content %}
+{% load static %}
+<div class="container" style="padding-top: 20px; padding-bottom: 20px;">
+    <h2>Ошибка</h2>
+    <p>Не удалось произвести перевод</p>
+    <br>
+    <a href="{% url 'index' %}">На главную</a>
+</div>
+{% endblock %}

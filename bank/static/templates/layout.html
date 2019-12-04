@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html style="min-height: 100%; height: 100%;">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ЯБанк</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {% block addition_links %}{% endblock %}
+</head>
+<!-- fixed-top-->
+<body id="page-top" style="background: linear-gradient(to left, #dbc309, #ffed21); min-height: 100%; height:auto !important;a display: grid; grid-template-rows: auto 91px;" data-lang="{{ request.session.lang }}">
+    <header>
+    <h1></h1>
+    {% if user.is_authenticated %}
+        <a href="{% url 'index' %}">Главная</a> <a href="{% url 'logout' %}">Выйти</a>
+        <br>
+        Текущий пользователь: {{ user.username }}
+        <br>
+        Баланс:
+    {% else %}
+        <a href="{% url 'index' %}">Главная</a> <a href="{% url 'login' %}">Войти</a>
+    {% endif %}
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+</body>
+
+</html>
