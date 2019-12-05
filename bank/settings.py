@@ -31,7 +31,7 @@ LOGIN_REDIRECT_URL = "/"
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "static"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 
 ROOT_URLCONF = "bank.urls"
