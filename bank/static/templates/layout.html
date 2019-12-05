@@ -10,29 +10,47 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+
+    </style>
     {% block addition_links %}{% endblock %}
 </head>
 <!-- fixed-top-->
 <body id="page-top" style="background: linear-gradient(to left, #dbc309, #ffed21); min-height: 100%; height:auto !important;a display: grid; grid-template-rows: auto 91px;" data-lang="{{ request.session.lang }}">
-    <header>
+<div class="container">
+<div class="row"><div class="col-md-6">
     <h1></h1>
+    <a href="{% url 'index' %}" class="btn btn-sm btn-light">Главная</a>
     {% if user.is_authenticated %}
-        {% get_account user as user_account %}
-        <a href="{% url 'index' %}">Главная</a> <a href="{% url 'logout' %}">Выйти</a>
+        <a href="{% url 'logout' %}" class="btn btn-light btn-sm">Выйти</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="btn btn-light btn-sm">Войти</a>
+    {% endif %}
+</div></div>
+<div class="row"><div class="col-md-6">
+    <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
+    {% if user.is_authenticated %}
+    {% get_account user as user_account %}
         <br>
         Текущий пользователь: {{ user.username }}
         <br>
         Баланс: {{ user_account.amount }}
-    {% else %}
-        <a href="{% url 'index' %}">Главная</a> <a href="{% url 'login' %}">Войти</a>
     {% endif %}
-    </header>
-
+    </div>
+</div></div>
+<div class="row"><div class="col-md-6">
     {% block content %}
     {% endblock %}
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+</div>
+</div>
+</div>
 </body>
 
 </html>

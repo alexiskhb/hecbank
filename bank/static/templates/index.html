@@ -6,13 +6,15 @@
     {% if user.is_authenticated %}
         {% if user_account.can_send %}
             <form name = "form" method="post" action= "/make_payment/"> {% csrf_token %}
+                <div class="form-group">
                 <label for="receiver">Кому: </label>
-                <input type="text" name="receiver" id="receiver">
+                <input type="text" class="form-control" name="receiver" id="receiver">
                 <br>
                 <label for="amount">Сколько: </label>
-                <input type="number" name="amount" id="amount">
+                <input type="number" class="form-control" name="amount" id="amount">
                 <br>
-                <button type="submit">Перевести</button>
+                <button type="submit" class="btn btn-dark btn-block">Перевести</button>
+                </div>
             </form>
         {% else %}
             Этот аккаунт не может совершать переводы
