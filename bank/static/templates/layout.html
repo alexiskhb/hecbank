@@ -3,6 +3,7 @@
 
 <head>
     {% load static %}
+    {% load account %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>ЯБанк</title>
@@ -17,11 +18,12 @@
     <header>
     <h1></h1>
     {% if user.is_authenticated %}
+        {% get_account user as user_account %}
         <a href="{% url 'index' %}">Главная</a> <a href="{% url 'logout' %}">Выйти</a>
         <br>
         Текущий пользователь: {{ user.username }}
         <br>
-        Баланс:
+        Баланс: {{ user_account.amount }}
     {% else %}
         <a href="{% url 'index' %}">Главная</a> <a href="{% url 'login' %}">Войти</a>
     {% endif %}
