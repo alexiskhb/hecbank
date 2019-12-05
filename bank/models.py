@@ -4,7 +4,9 @@ from django.contrib.auth.models import User
 
 class Account(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    amount = models.IntegerField()
+    amount = models.IntegerField(default=0)
+    can_send = models.BooleanField(default=True)
+    can_receive = models.BooleanField(default=True)
 
 
 class Payment(models.Model):
