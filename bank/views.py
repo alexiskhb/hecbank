@@ -25,5 +25,5 @@ def make_payment(request):
                 return render(request, 'payment_error.html')
             # process the data in form.cleaned_data as required
             if make_transaction(str(current_user.username), str(receiver), int(amount)):
-                return render(request, 'payment_ok.html', {'form': form})
+                return render(request, 'payment_ok.html', {'form_amount': str(amount), 'form_receiver': str(receiver)})
     return render(request, 'payment_error.html')

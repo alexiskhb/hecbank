@@ -4,7 +4,7 @@
 {% load static %}
 <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
     <h2>Готово</h2>
-    <p>Операция прошла успешно!</p>
+    <p>Операция на {{ form_amount }} МНК пользователю {{ form_receiver }} прошла успешно!</p>
     <br>
     <a href="{% url 'index' %}" class="btn btn-default btn-block">На главную</a>
 </div>
