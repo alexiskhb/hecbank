@@ -6,7 +6,7 @@ from .settings import DEBUG
 
 
 def make_transaction(sender: str, receiver: str, amount: int):
-    if amount <= 0:
+    if amount <= 0 or sender == receiver:
         return False
 
     try:
